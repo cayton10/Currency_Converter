@@ -12,7 +12,9 @@
         <!-- --------------------------- bootstrap theme --------------------------- -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <!-- --------------------------- jQuery UI Theme --------------------------- -->    
-        <link rel="stylesheet" href="css/jQueryUI.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/black-tie/jquery-ui.css">
+        <!-- --------------------- font awesome social badges ---------------------- -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
@@ -72,58 +74,78 @@
                 </div>
 
         <!-- ---------------------------- main content ----------------------------- -->
-
-                <div class="row">
-                    <div class="col-12 text-center" id="employee-info">
-                        <h2>Employee Information</h2>
+                <form action method="post" id="form" autocomplete="off">
+                    <input style="display:none">
+                    <input type="password" style="display:none">
+                    <div class="row">
+                        <div class="col-12 text-center" id="employee-info">
+                            <h2>Employee Information</h2>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-6 label">
-                        <h3>Current Home Country</h3>
-                        <input type="text" class="form-control" placeholder="Current country" id="country">
+                    <div class="row">
+                        <div class="col-12 col-md-6 label">
+                            <h3>Current Home Country</h3>
+                            <input type="text" class="form-control ui-autocomplete-input" placeholder="Current country" id="country" autocomplete="off" required>
+                        </div>
+                        <div class="col-12 col-md-6 label">
+                            <h3>New Home Country</h3>
+                            <input type="text" class="form-control" placeholder="New country" id="newCountry" autocomplete="off" required>
+                        </div>
                     </div>
-                    <div class="col-12 col-md-6 label">
-                        <h3>New Home Country</h3>
-                        <input type="text" class="form-control" placeholder="New country" id="newCountry">
+                    <div class="row">
+                        <div class="col-12 col-md-6 label">
+                            <h3>Current <span id="homeSal"></span> Salary</h3>
+                            <input type="text" class="form-control" placeholder="Current home salary" id="country" autocomplete="off" required>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-6 label">
-                        <h3>Base Conversion</h3>
-                        <input type="text" class="form-control" placeholder="Base currency conversion" id="baseCurrency" disabled>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button type="button" class="btn btn-primary" id="convert">Convert</button>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-6 label">
-                        <h3>Current <span id="homeSal"></span> Salary</h3>
-                        <input type="text" class="form-control" placeholder="Current home salary" id="country">
+                    <div class="row">
+                        <div class="col-12 col-md-6 label">
+                            <h3>Base Conversion</h3>
+                            <input type="text" class="form-control" placeholder="Base currency conversion" id="baseCurrency" disabled>
+                        </div>
+                        <div class="col-12 col-md-6 label">
+                            <h3>New <span id="newSal"></span> Salary</h3>
+                            <input type="text" class="form-control" placeholder="New home salary" id="newCountry" disabled>
+                        </div>
                     </div>
-                    <div class="col-12 col-md-6 label">
-                        <h3>New <span id="newSal"></span> Salary</h3>
-                        <input type="text" class="form-control" placeholder="New home salary" id="newCountry">
+            <!-- -------------------------- conversion button -------------------------- -->
+                    
+                </form>
+            </div>
+        </main>
+        <footer class='row-fluid'>
+            <!-- SOCIAL LINKS IN FOOTER -->
+            <div class="col-12 text-center">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12">
+                        <hr class='col-8'>
+                            <ul class="social d-inline">
+                                <li class="d-inline">
+                                    <a href="https://www.linkedin.com/in/bencayton/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+                                </li>
+                                <li class="d-inline">
+                                    <a href="https://github.com/cayton10" target="_blank"><i class="fa fa-github-square"></i></a>
+                                </li>
+                                <li class="d-inline">
+                                    <a href="https://twitter.com/BenCayton" target="_blank"><i class="fa fa-twitter-square"></i></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-        <!-- -------------------------- conversion button -------------------------- -->
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <button type="button" class="btn btn-primary" id="convert">Convert</button>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <p><span class="copy">&copy;</span> <span id="copyrightYear">0</span> - BPC</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
-        <footer>
-            
         </footer>
-
-
-
-
-
-
-
-
-
 
         <!-- ----------------------------------------------------------------------- -->
         <!--                  Javascript and Bootstrap Dependencies                  -->
