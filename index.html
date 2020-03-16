@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="no-js"> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Currency Converter</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- ---------------------------- google fonts ----------------------------- -->
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai+2&display=swap" rel="stylesheet">
+        <!-- --------------------------- bootstrap theme --------------------------- -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <!-- --------------------------- jQuery UI Theme --------------------------- -->    
+        <link rel="stylesheet" href="css/jQueryUI.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <!-- ---------------------------- header title ----------------------------- -->    
+        <header>
+            <div class="container-fluid">
+                <div class="row" id="title">
+                    <div class="col-12 text-center">
+                        <h1>Currency Converter</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ---------------------------- main content ----------------------------- -->
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12" id="image">
+                        <img src="img/cash.jpg"/>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Instructions</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                        1. Enter employee current home country.<br>
+                        2. Enter employee new home country.<br>
+                        3. Base exchange rate is reported.<br>
+                        4. Enter employee home country salary.<br>
+                        5. After entering all required information, use 
+                        <button type="button" class="btn-primary" id="example" >Convert</button> 
+                        button located below the salary information fields.<br>
+                        6. New salary is calculated for you!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                            How To
+                        </button>                    
+                    </div>
+                </div>
+
+        <!-- ---------------------------- main content ----------------------------- -->
+
+                <div class="row">
+                    <div class="col-12 text-center" id="employee-info">
+                        <h2>Employee Information</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 label">
+                        <h3>Current Home Country</h3>
+                        <input type="text" class="form-control" placeholder="Current country" id="country">
+                    </div>
+                    <div class="col-12 col-md-6 label">
+                        <h3>New Home Country</h3>
+                        <input type="text" class="form-control" placeholder="New country" id="newCountry">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 label">
+                        <h3>Base Conversion</h3>
+                        <input type="text" class="form-control" placeholder="Base currency conversion" id="baseCurrency" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 label">
+                        <h3>Current <span id="homeSal"></span> Salary</h3>
+                        <input type="text" class="form-control" placeholder="Current home salary" id="country">
+                    </div>
+                    <div class="col-12 col-md-6 label">
+                        <h3>New <span id="newSal"></span> Salary</h3>
+                        <input type="text" class="form-control" placeholder="New home salary" id="newCountry">
+                    </div>
+                </div>
+        <!-- -------------------------- conversion button -------------------------- -->
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn btn-primary" id="convert">Convert</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            
+        </footer>
+
+
+
+
+
+
+
+
+
+
+        <!-- ----------------------------------------------------------------------- -->
+        <!--                  Javascript and Bootstrap Dependencies                  -->
+        <!-- ----------------------------------------------------------------------- -->
+
+        <!-- ----------------------------- jQuery CDN ------------------------------ -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- ------------------------ bootstrap required js ------------------------ -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <!-- ------------ jQuery UI CDN for autocomplete and animations ------------ -->
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+        <script src="js/currency.js"></script>
+        <script src="" async defer></script>
+    </body>
+</html>
