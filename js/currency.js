@@ -7,6 +7,7 @@ $(document).ready(function(){
     var newCountry;
     /* ------------------------------ currency info ----------------------------- */
     var salary;
+    var newSal;
     var conversion;
     var homeCode;
     var newCode;
@@ -27,6 +28,7 @@ $(document).ready(function(){
             }   //Populate suggestion array                                
         });
     });
+    
     /* -------------------------------------------------------------------------- */
     /*                       AUTOCOMPLETE TEXT BOX FUNCTIONS                      */
     /* -------------------------------------------------------------------------- */
@@ -43,7 +45,10 @@ $(document).ready(function(){
         }
     });
 
+    /* ----------------------- add commas to salary input ----------------------- */
 
+      
+    //#current not the best id name, but had to beat Google's autofill in some way.
     $('#current').autocomplete({
         minLength: 2,
         source: nameArray,
@@ -53,13 +58,32 @@ $(document).ready(function(){
             homeCountry = $('#current').val(); 
         }
     });
-
+    //Enter / return keypress
+    $('#current').keypress(function(event){
+        //If enter button is pressed,
+        if(event.keyCode === 13)
+        {
+            event.preventDefault();
+            homeCountry = $('#current').val();
+        }
+    });
+    //#newThing is even worse than current but.... beats Google's autofill
     $('#newThing').autocomplete({
         minLength: 2,
         source: nameArray,
         select: function()
         {
             console.log($('#newThing').val());
+            newCountry = $('#newThing').val();
+        }
+    });
+
+    //Enter / return keypress
+    $('#newThing').keypress(function(event){
+        //If enter button is pressed,
+        if(event.keyCode === 13)
+        {
+            event.preventDefault();
             newCountry = $('#newThing').val();
         }
     });
@@ -76,57 +100,80 @@ $(document).ready(function(){
         }
         //Else, make ajax calls to countries API to populate currency info
         else 
-        {
-            $.ajax(
-            {
-                url: countryAPI,
-                dataType: 'json',
-                method: 'get',
-                data: 'none',
-                success: function(data)
+        {   
+            salary = $('#salary').val().replace(/\,/g, '');
+            salary = parseInt(salary);
+            console.log(salary);
+            homeCountry = $('#current').val();
+            newCountry = $('#newThing').val();
+            //Use .when.done operators to complete first ajax call / return required codes
+            $.when(
+                $.ajax(
                 {
-                    //iterate through countries API JSON data
-                    $.each(data, function(key, entry)
-                    {   
-                        //Populate currency info for homeCountry symbol and code
-                        if(homeCountry == entry.name)
-                        {
-                            homeCode = entry.currencies[0].code;
-                            homeSymbol = entry.currencies[0].symbol;
-                            console.log(homeCode);
-                        }
-
-                        if(newCountry == entry.name)
-                        {
-                            newCode = entry.currencies[0].code;
-                            newSymbol = entry.currencies[0].symbol;
-                            console.log(newCode);
-                        }
-                    });
-                }
-                //error handling for misspelled or other
-                //error: function(){
-                   // $('#error').show("drop", {direction: "down" }, 400);
-                
-            });
-
-            /*$.ajax(
-                {
-                    url: 'https://free.currconv.com/api/v7/convert?q=' + homeCode + '_' + newCode + '&compact=ultra&apiKey=0efe8ba1797af83c25f7',
+                    url: countryAPI,
                     dataType: 'json',
-                    method: 'put',
+                    method: 'get',
                     data: 'none',
                     success: function(data)
                     {
-                        console.log(homeCode + " " + newCode);
+                        //iterate through countries API JSON data
                         $.each(data, function(key, entry)
-                        {
-                            $('#baseCurrency').val(homeSymbol + "1.00 = " + newSymbol + entry.toFixed(2));
-                            conversion = entry;
-                            console.log(conversion);
+                        {   
+                            //Populate currency info for homeCountry symbol and code
+                            if(homeCountry == entry.name)
+                            {
+                                homeCode = entry.currencies[0].code;
+                                homeSymbol = entry.currencies[0].symbol;
+                                if(homeSymbol == 'undefined')
+                                {
+                                    homeSymbol = homeCode;
+                                }
+                                console.log(homeCode);
+                            }
+
+                            if(newCountry == entry.name)
+                            {
+                                newCode = entry.currencies[0].code;
+                                newSymbol = entry.currencies[0].symbol;
+                                if(homeSymbol == 'undefined')
+                                {
+                                    homeSymbol = homeCode;
+                                }
+                                console.log(newCode);
+                            }
                         });
                     }
-                });*/
+                    //error handling for misspelled or other
+                    //error: function(){
+                    // $('#error').show("drop", {direction: "down" }, 400);
+                    
+                })
+                //.DONE perform empty () => containing second ajax call. 
+                // Second call depends on first to construct appropriate url for conversion
+            ).done(function(){
+                $.ajax(
+                    {
+                        url: 'https://free.currconv.com/api/v7/convert?q=' + homeCode + '_' + newCode + '&compact=ultra&apiKey=0efe8ba1797af83c25f7',
+                        dataType: 'json',
+                        method: 'get',
+                        data: 'none',
+                        success: function(data)
+                        {
+                            //iterate free.currconv.com/api
+                            $.each(data, function(key, entry)
+                            {   
+                                $('#baseCurrency').val(homeSymbol + "1.00 = " + newSymbol + entry.toFixed(2));
+                                conversion = entry;
+                                newSal = conversion * salary;
+                                $('#newSal').val(newSymbol + newSal.toLocaleString('en-US').toFixed(2));
+                            });
+                        },
+                        //alert error(will change when polishing this turd)
+                        error: function(){
+                           alert('busted');
+                        }
+                    });
+            });
         }
     });
 
