@@ -7,15 +7,16 @@ $(document).ready(function(){
     var newCountry;
     /* ------------------------------ currency info ----------------------------- */
     var salary;
+    var conversion;
     var homeCode;
     var newCode;
     var homeSymbol;
     var newSymbol;
 
+    
     /* ------------------- restCountries API for ALL countries ------------------ */
               //Filter results for only what is needed for this application//
     const countryAPI = 'https://restcountries.eu/rest/v2/all?fields=name;currencies;capital'
-   
     /* ------------------- Load country names for autosuggest ------------------- */
     $.getJSON(countryAPI, function(data){
         //Loop through country API JSON structure
@@ -43,33 +44,91 @@ $(document).ready(function(){
     });
 
 
-    $('#country').autocomplete({
+    $('#current').autocomplete({
         minLength: 2,
         source: nameArray,
         select: function() //Upon selection of country () =>
         {   
-            $('#country').keyup(function (e) { 
-                $('#country').attr("autocomplete = on");
-            });
-            console.log($('#country').val()); //Print name of country to console
-            homeCountry = $('#country').val(); 
+            console.log($('#current').val()); //Print name of country to console
+            homeCountry = $('#current').val(); 
         }
     });
 
-    $('#newCountry').autocomplete({
+    $('#newThing').autocomplete({
         minLength: 2,
         source: nameArray,
         select: function()
         {
-            console.log($('#newCountry').val());
-            newCountry = $('#newCountry').val();
+            console.log($('#newThing').val());
+            newCountry = $('#newThing').val();
         }
     });
 
-    if($('input[autofill="off"]').val('')){
-        $('input[autofill="off"]').disableAutofill();
-    }
-    
+    /* -------------------------------------------------------------------------- */
+    /*                           CONVERT BUTTON FUNCTION                          */
+    /* -------------------------------------------------------------------------- */
+    $('#convert').click(event, function(){
+        //If any of the required fields are empty:
+        if($('#newThing').val() == '' || $('#current').val() == '' || $('#salary').val() == '')
+        {
+            //Fix this with a dropdown div next
+            alert('busted');
+        }
+        //Else, make ajax calls to countries API to populate currency info
+        else 
+        {
+            $.ajax(
+            {
+                url: countryAPI,
+                dataType: 'json',
+                method: 'get',
+                data: 'none',
+                success: function(data)
+                {
+                    //iterate through countries API JSON data
+                    $.each(data, function(key, entry)
+                    {   
+                        //Populate currency info for homeCountry symbol and code
+                        if(homeCountry == entry.name)
+                        {
+                            homeCode = entry.currencies[0].code;
+                            homeSymbol = entry.currencies[0].symbol;
+                            console.log(homeCode);
+                        }
+
+                        if(newCountry == entry.name)
+                        {
+                            newCode = entry.currencies[0].code;
+                            newSymbol = entry.currencies[0].symbol;
+                            console.log(newCode);
+                        }
+                    });
+                }
+                //error handling for misspelled or other
+                //error: function(){
+                   // $('#error').show("drop", {direction: "down" }, 400);
+                
+            });
+
+            /*$.ajax(
+                {
+                    url: 'https://free.currconv.com/api/v7/convert?q=' + homeCode + '_' + newCode + '&compact=ultra&apiKey=0efe8ba1797af83c25f7',
+                    dataType: 'json',
+                    method: 'put',
+                    data: 'none',
+                    success: function(data)
+                    {
+                        console.log(homeCode + " " + newCode);
+                        $.each(data, function(key, entry)
+                        {
+                            $('#baseCurrency').val(homeSymbol + "1.00 = " + newSymbol + entry.toFixed(2));
+                            conversion = entry;
+                            console.log(conversion);
+                        });
+                    }
+                });*/
+        }
+    });
 
 
 });
