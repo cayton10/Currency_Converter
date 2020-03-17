@@ -124,7 +124,7 @@ $(document).ready(function(){
                             {
                                 homeCode = entry.currencies[0].code;
                                 homeSymbol = entry.currencies[0].symbol;
-                                if(homeSymbol == 'undefined')
+                                if(homeSymbol == undefined)
                                 {
                                     homeSymbol = homeCode;
                                 }
@@ -135,9 +135,9 @@ $(document).ready(function(){
                             {
                                 newCode = entry.currencies[0].code;
                                 newSymbol = entry.currencies[0].symbol;
-                                if(homeSymbol == 'undefined')
+                                if(newSymbol == undefined)
                                 {
-                                    homeSymbol = homeCode;
+                                    newSymbol = homeCode;
                                 }
                                 console.log(newCode);
                             }
@@ -162,11 +162,19 @@ $(document).ready(function(){
                             //iterate free.currconv.com/api
                             $.each(data, function(key, entry)
                             {   
-                                $('#baseCurrency').val(homeSymbol + "1.00 = " + newSymbol + entry.toFixed(2));
+                                $('#baseCurrency').val(homeSymbol + " 1.00 = " + newSymbol + ' ' + entry.toFixed(2));
                                 conversion = entry;
                                 newSal = conversion * salary;
-                                $('#newSal').val(newSymbol + newSal.toLocaleString('en-US').toFixed(2));
+                                $('#newSal').val(newSymbol + ' ' + newSal.toLocaleString('en-US', 
+                                {
+                                    'minimumFractionDigits':2,
+                                    'maximumFractionDigits':2
+                                }));
                             });
+                            //Add home country name to salary information for clarity
+                            $('#homeLocation').text(homeCountry);
+                            //Add new country name to salaary information for clarity
+                            $('#newLocation').text(newCountry);
                         },
                         //alert error(will change when polishing this turd)
                         error: function(){
@@ -178,4 +186,6 @@ $(document).ready(function(){
     });
 
 
+    //Footer dynamic year update
+    document.getElementById('copyrightYear').innerHTML = new Date().getFullYear();
 });
