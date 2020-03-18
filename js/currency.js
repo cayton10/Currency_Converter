@@ -92,6 +92,7 @@ $(document).ready(function(){
          $('input').click(function()
             {
                 $('input').popover('dispose');
+                $('input').removeClass('invalid');
             })
         }
 
@@ -104,14 +105,18 @@ $(document).ready(function(){
         {
             //Popover error handling for each <input> field
             if($('#current').val() == '')
-            {   //Error handing mssg for current country input
+            {   //Error handling mssg for current country input
                 $('#current').popover(
                     {
                         title: 'Error',
                         content: 'Please enter a valid country.',
-                        placement: 'bottom'
-                    }
+                        placement: 'bottom',
+                        animation: true
+                    },
                 ).popover('show');
+
+                $('#current').addClass('invalid');
+
 
             } else if($('#newThing').val() == '')
             {   //Error handling mssg for newCountry input
@@ -122,6 +127,8 @@ $(document).ready(function(){
                         placement: 'bottom'
                     }
                 ).popover('show');
+                $('#newThing').addClass('invalid');
+
             } else {
                 
                 $('#salary').popover(
@@ -131,6 +138,7 @@ $(document).ready(function(){
                         placement: 'bottom'
                     }
                 ).popover('show');
+                $('#salary').addClass('invalid');
             }  
         }
         //Else, make ajax calls to countries API to populate currency info
