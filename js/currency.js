@@ -14,7 +14,7 @@ $(document).ready(function(){
     var homeSymbol;
     var newSymbol;
 
-    
+    $('[data-toggle="popover"]').popover(); 
     /* ------------------- restCountries API for ALL countries ------------------ */
               //Filter results for only what is needed for this application//
     const countryAPI = 'https://restcountries.eu/rest/v2/all?fields=name;currencies;capital'
@@ -67,7 +67,7 @@ $(document).ready(function(){
             homeCountry = $('#current').val();
         }
     });
-    //#newThing is even worse than current but.... beats Google's autofill
+    //#newThing is even worse than current but.... circumvents Google's autofill
     $('#newThing').autocomplete({
         minLength: 2,
         source: nameArray,
@@ -87,6 +87,13 @@ $(document).ready(function(){
             newCountry = $('#newThing').val();
         }
     });
+    //If popover error exists, remove it after clicking in input field
+    if($('input').next('popover:visible')){
+         $('input').click(function()
+            {
+                $('input').popover('dispose');
+            })
+        }
 
     /* -------------------------------------------------------------------------- */
     /*                           CONVERT BUTTON FUNCTION                          */
@@ -95,14 +102,44 @@ $(document).ready(function(){
         //If any of the required fields are empty:
         if($('#newThing').val() == '' || $('#current').val() == '' || $('#salary').val() == '')
         {
-            //Fix this with a dropdown div next
-            alert('busted');
+            //Popover error handling for each <input> field
+            if($('#current').val() == '')
+            {   //Error handing mssg for current country input
+                $('#current').popover(
+                    {
+                        title: 'Error',
+                        content: 'Please enter a valid country.',
+                        placement: 'bottom'
+                    }
+                ).popover('show');
+
+            } else if($('#newThing').val() == '')
+            {   //Error handling mssg for newCountry input
+                $('#newThing').popover(
+                    {
+                        title: 'Error',
+                        content: 'Please enter a valid country.',
+                        placement: 'bottom'
+                    }
+                ).popover('show');
+            } else {
+                
+                $('#salary').popover(
+                    {   //Error handling mssg for salary input
+                        title: 'Error',
+                        content: "Please enter an initial salary.",
+                        placement: 'bottom'
+                    }
+                ).popover('show');
+            }  
         }
         //Else, make ajax calls to countries API to populate currency info
         else 
-        {   
+        {   //Remove commas from salary input field
             salary = $('#salary').val().replace(/\,/g, '');
+            //Parse salary string, convert to int
             salary = parseInt(salary);
+            //Test value in console
             console.log(salary);
             homeCountry = $('#current').val();
             newCountry = $('#newThing').val();
@@ -142,11 +179,7 @@ $(document).ready(function(){
                                 console.log(newCode);
                             }
                         });
-                    }
-                    //error handling for misspelled or other
-                    //error: function(){
-                    // $('#error').show("drop", {direction: "down" }, 400);
-                    
+                    }  
                 })
                 //.DONE perform empty () => containing second ajax call. 
                 // Second call depends on first to construct appropriate url for conversion
@@ -161,7 +194,7 @@ $(document).ready(function(){
                         {
                             //iterate free.currconv.com/api
                             $.each(data, function(key, entry)
-                            {   
+                            {   //Base conversion output. Show appropriate currency symbols, etc.
                                 $('#baseCurrency').val(homeSymbol + " 1.00 = " + newSymbol + ' ' + entry.toFixed(2));
                                 conversion = entry;
                                 newSal = conversion * salary;
