@@ -14,7 +14,16 @@ $(document).ready(function(){
     var homeSymbol;
     var newSymbol;
 
-    $('[data-toggle="popover"]').popover(); 
+    $('[data-toggle="popover"]').popover();
+
+    /* -------------------------------------------------------------------------- */
+    /*                         fadeIn effects on page load                        */
+    /* -------------------------------------------------------------------------- */
+
+    //FadeIn effect for entire page
+    $('body').hide(0).fadeIn(500);
+    $('#title').hide(0).fadeIn(1250);
+
     /* ------------------- restCountries API for ALL countries ------------------ */
               //Filter results for only what is needed for this application//
     const countryAPI = 'https://restcountries.eu/rest/v2/all?fields=name;currencies;capital'
@@ -111,10 +120,12 @@ $(document).ready(function(){
                         title: 'Error',
                         content: 'Please enter a valid country.',
                         placement: 'bottom',
+                        container: '#current',
                         animation: true
-                    },
-                ).popover('show');
+                    }
+                ).popover('show').effect('bounce', {times:5}, 2000);
 
+                
                 $('#current').addClass('invalid');
 
 

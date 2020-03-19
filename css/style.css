@@ -40,9 +40,8 @@ a {
     color: rgb(144, 227, 240);
     border-radius: 10px;
     border: 1px solid white;
-    animation-duration: 1s;
-    animation-iteration-count: initial;
 }
+
 
 .popover-header{
     background: #ff3333;
@@ -68,19 +67,19 @@ a {
 @media only screen 
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
-/* Styles */
+
 }
 
 /* Smartphones (landscape) ----------- */
 @media only screen 
 and (min-width : 321px) {
-/* Styles */
+    
 }
 
 /* Smartphones (portrait) ----------- */
 @media only screen 
 and (max-width : 320px) {
-/* Styles */
+    
 }
 
 /* iPads (portrait and landscape) ----------- */
