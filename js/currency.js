@@ -102,6 +102,7 @@ $(document).ready(function(){
             {
                 $('input').popover('dispose');
                 $('input').removeClass('invalid');
+                $('#convert').removeAttr('disabled');
             })
         }
 
@@ -120,13 +121,14 @@ $(document).ready(function(){
                         title: 'Error',
                         content: 'Please enter a valid country.',
                         placement: 'bottom',
-                        container: '#current',
+                        container: 'body',
                         animation: true
                     }
-                ).popover('show').effect('bounce', {times:5}, 2000);
-
+                ).popover('show');
                 
+                $('.popover').effect('bounce', {times:60}, 20000); 
                 $('#current').addClass('invalid');
+                $('#convert').attr('disabled', 'disabled');
 
 
             } else if($('#newThing').val() == '')
@@ -138,7 +140,9 @@ $(document).ready(function(){
                         placement: 'bottom'
                     }
                 ).popover('show');
+                $('.popover').effect('bounce', {times:60}, 20000);
                 $('#newThing').addClass('invalid');
+                $('#convert').attr('disabled', 'disabled');
 
             } else {
                 
@@ -149,7 +153,9 @@ $(document).ready(function(){
                         placement: 'bottom'
                     }
                 ).popover('show');
+                $('.popover').effect('bounce', {times:60}, 20000)
                 $('#salary').addClass('invalid');
+                $('#convert').attr('disabled', 'disabled');
             }  
         }
         //Else, make ajax calls to countries API to populate currency info
