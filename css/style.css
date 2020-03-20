@@ -13,13 +13,14 @@ body{
 }
 
 #image {
-    width: 500px;
+    width: 100vw;
     overflow: hidden;
     height: 200px;
+    padding: 0px;
 }
 
 img {
-    position: absolute;
+    position: static;
     top: -50px;
     width: 700px;
 }
@@ -36,13 +37,46 @@ a {
     box-shadow: 0px 0px 10px 1px rgb(255, 65, 65);
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                    FONTS                                   */
+/* -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5{
+    font-family: 'Baloo Bhai 2', Arial, Helvetica, sans-serif;
+    margin-bottom: 0;
+}
+
+p{
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+}
+
+/* ---------------------------- PLACEHOLDER TEXT ---------------------------- */
+::placeholder {
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+}
+
+button {
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               ELEMENT SPACING                              */
+/* -------------------------------------------------------------------------- */
+button{
+    margin: 10px 0;
+}
+
+input{
+    margin: 0px 0px 10px 0px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               POPOVER STYLING                              */
+/* -------------------------------------------------------------------------- */
 .popover{
     color: rgb(144, 227, 240);
     border-radius: 10px;
     border: 1px solid white;
 }
-
-
 .popover-header{
     background: #ff3333;
     border-top-right-radius: 10px;
@@ -53,7 +87,6 @@ a {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-  
 
 /* -------------------------------------------------------------------------- */
 /*                                MEDIA QUERIES                               */
@@ -68,17 +101,43 @@ a {
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
 
+    img{
+        position: static;
+        overflow: hidden;
+        width: 100vw;
+        height: 15vh;
+    }
+
 }
 
 /* Smartphones (landscape) ----------- */
 @media only screen 
 and (min-width : 321px) {
     
+    img{
+        position: static;
+        overflow: hidden;
+        width: 100vw;
+        height: 40vh;
+        object-fit: cover;
+    }
+
+    #image{
+        height: 20vh;
+    }
 }
 
 /* Smartphones (portrait) ----------- */
 @media only screen 
 and (max-width : 320px) {
+
+    img{
+        position: static;
+        overflow: hidden;
+        width: 100vw;
+        height: 10vh;
+        object-fit: cover;
+    }
     
 }
 
