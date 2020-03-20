@@ -9,7 +9,14 @@ body{
 
 #title {
     font-family: 'Baloo Bhai 2', cursive;
-    background: green;
+    position: absolute;
+    z-index: 20;
+    background: white;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid rgb(66, 118, 66);
+    background: rgb(210, 242, 210);
 }
 
 #image {
@@ -27,6 +34,12 @@ img {
 
 .container{
     background: grey;
+}
+
+#title-text {
+    left: -5px;
+    top: 32px;
+    position: relative;
 }
 
 a {
@@ -48,6 +61,11 @@ h1, h2, h3, h4, h5{
 
 p{
     font-family: 'Raleway', Arial, Helvetica, sans-serif;
+}
+
+.cent {
+    color: rgb(213, 142, 55);
+    font-size: 50px;
 }
 
 /* ---------------------------- PLACEHOLDER TEXT ---------------------------- */
@@ -162,7 +180,13 @@ and (orientation : landscape) {
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) 
 and (orientation : portrait) {
-/* Styles */
+    img{
+        position: static;
+        overflow: hidden;
+        width: 100vw;
+        height: 15vh;
+        object-fit: cover;
+    }
 }
 
 /* Desktops and laptops ----------- */
