@@ -1,3 +1,12 @@
+/* -------------------------------------------------------------------------- */
+/* Benjamin Cayton                                                            */
+// 3.15.2020
+// Program Description: Currency Converter is a tool built for HR professionals
+// that move employees from one country to another. Individual state markets
+// change constantly, so this tool keeps the HR professional from looking up
+// up-to-date currency info, thus saving man hours. 
+/* -------------------------------------------------------------------------- */
+
 $(document).ready(function(){
 
     /* -------------------- populate country suggestion array ------------------- */

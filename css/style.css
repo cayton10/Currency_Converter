@@ -2,9 +2,38 @@
 /*                               color palettes                               */
 /* -------------------------------------------------------------------------- */
 
+/* ------------------------------ pastel greens ----------------------------- */
+/* Color Theme Swatches in Hex */
+.Money-1-hex { color: #C3F5FD; }
+.Money-2-hex { color: #AFE3DC; }
+.Money-3-hex { color: #CCF9E6; }
+.Money-4-hex { color: #AFE3BE; }
+.Money-5-hex { color: #C3FDC4; }
+/* Dark Money Color Swatches in Hex*/
+/* Color Theme Swatches in Hex */
+.Dark-Money-1-hex { color: #67C79F; }
+.Dark-Money-2-hex { color: #769186; }
+.Dark-Money-3-hex { color: #407A62; }
+.Dark-Money-4-hex { color: #A3C7B8; }
+.Dark-Money-5-hex { color: #254739; }
+/* Dark Red Color Theme in Hex */
+/* Color Theme Swatches in Hex */
+.Dark-Red-1-hex { color: #471E17; }
+.Dark-Red-2-hex { color: #D08D81; }
+.Dark-Red-3-hex { color: #C75440; }
+.Dark-Red-4-hex { color: #47302C; }
+.Dark-Red-5-hex { color: #943E2F; }
+/* Light Red Color Theme is Hex*/
+/* Color Theme Swatches in Hex */
+.Dark-Red-1-hex { color: #7A6864; }
+.Dark-Red-2-hex { color: #FB9482; }
+.Dark-Red-3-hex { color: #FAD4CD; }
+.Dark-Red-4-hex { color: #7A4840; }
+.Dark-Red-5-hex { color: #C7A8A3; }
+
 
 body{
-    background: grey;
+    background: white;
 }
 
 #title {
@@ -84,6 +113,10 @@ button{
     margin: 10px 0;
 }
 
+#howto {
+    margin-top: 30px;
+}
+
 input{
     margin: 0px 0px 10px 0px;
 }
@@ -125,6 +158,10 @@ and (max-device-width : 480px) {
         overflow: hidden;
         width: 100vw;
         height: 15vh;
+    }
+
+    #image{
+        height: 20vh;
     }
 
 }
@@ -172,6 +209,7 @@ and (max-width : 320px) {
         object-fit: cover;
     }
     
+    
 }
 
 /* Smartphones (portrait) ----------- */
@@ -184,11 +222,24 @@ and (max-width : 360px) {
         position: absolute;
         z-index: 20;
         background: white;
-        width: 200px;
-        height: 180px;
+        width: 250px;
+        height: 250px;
         border-radius: 50%;
         border: 4px solid rgb(66, 118, 66);
         background: rgb(210, 242, 210);
+    }
+
+    #title-text{
+        top: 45px;
+        left: 1px;
+    }
+
+    #title-text > h1 {
+        font-size: 3rem;
+    }
+
+    .cent {
+        font-size: 4rem;
     }
 
     img{
@@ -209,7 +260,12 @@ and (max-width : 360px) {
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) {
-/* Styles */
+    #carousel-container {
+        min-width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 20vh;
+    }
 }
 
 /* iPads (landscape) ----------- */
@@ -217,7 +273,12 @@ and (max-device-width : 1024px) {
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) 
 and (orientation : landscape) {
-/* Styles */
+    #carousel-container {
+        min-width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 25vh;
+    }
 }
 
 /* iPads (portrait) ----------- */
@@ -225,11 +286,18 @@ and (orientation : landscape) {
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) 
 and (orientation : portrait) {
+    #carousel-container {
+        min-width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 20vh;
+    }
+
     img{
         position: static;
         overflow: hidden;
         width: 100vw;
-        height: 15vh;
+        height: 30vh;
         object-fit: cover;
     }
 }
@@ -237,7 +305,31 @@ and (orientation : portrait) {
 /* Desktops and laptops ----------- */
 @media only screen 
 and (min-width : 1224px) {
-/* Styles */
+    #carousel-container {
+        min-width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 15vh;
+    }
+    #title {
+        font-family: 'Baloo Bhai 2', cursive;
+        position: absolute;
+        z-index: 20;
+        background: white;
+        width: 200px;
+        height: 180px;
+        border-radius: 50%;
+        border: 4px solid rgb(66, 118, 66);
+        background: rgb(210, 242, 210);
+    }
+
+    img{
+        position: static;
+        width: 100vw;
+        height: 30vh;
+        object-fit: cover;
+    }
+
 }
 
 /* Large screens ----------- */
