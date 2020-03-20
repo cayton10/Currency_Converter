@@ -64,7 +64,7 @@ p{
 }
 
 .cent {
-    color: rgb(213, 142, 55);
+    color: rgb(162, 109, 45);
     font-size: 50px;
 }
 
@@ -146,9 +146,23 @@ and (min-width : 321px) {
     }
 }
 
+
+
 /* Smartphones (portrait) ----------- */
 @media only screen 
 and (max-width : 320px) {
+
+    #title {
+        font-family: 'Baloo Bhai 2', cursive;
+        position: absolute;
+        z-index: 20;
+        background: white;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 4px solid rgb(66, 118, 66);
+        background: rgb(210, 242, 210);
+    }
 
     img{
         position: static;
@@ -156,6 +170,37 @@ and (max-width : 320px) {
         width: 100vw;
         height: 10vh;
         object-fit: cover;
+    }
+    
+}
+
+/* Smartphones (portrait) ----------- */
+/* Galaxy S5 ------------------------ */
+@media only screen 
+and (max-width : 360px) {
+
+    #title {
+        font-family: 'Baloo Bhai 2', cursive;
+        position: absolute;
+        z-index: 20;
+        background: white;
+        width: 200px;
+        height: 180px;
+        border-radius: 50%;
+        border: 4px solid rgb(66, 118, 66);
+        background: rgb(210, 242, 210);
+    }
+
+    img{
+        position: static;
+        overflow: hidden;
+        width: 100vw;
+        height: 50vh;
+        object-fit: cover;
+    }
+
+    #carousel-row{
+        height:300px;
     }
     
 }
