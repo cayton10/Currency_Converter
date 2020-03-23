@@ -2,14 +2,50 @@
 /*                               color palettes                               */
 /* -------------------------------------------------------------------------- */
 
+/* ------------------------------ pastel greens ----------------------------- */
+/* Color Theme Swatches in Hex */
+.Money-1-hex { color: #C3F5FD; }
+.Money-2-hex { color: #AFE3DC; }
+.Money-3-hex { color: #CCF9E6; }
+.Money-4-hex { color: #AFE3BE; }
+.Money-5-hex { color: #C3FDC4; }
+/* Dark Money Color Swatches in Hex*/
+/* Color Theme Swatches in Hex */
+.Dark-Money-1-hex { color: #67C79F; }
+.Dark-Money-2-hex { color: #769186; }
+.Dark-Money-3-hex { color: #407A62; }
+.Dark-Money-4-hex { color: #A3C7B8; }
+.Dark-Money-5-hex { color: #254739; }
+/* Dark Red Color Theme in Hex */
+/* Color Theme Swatches in Hex */
+.Dark-Red-1-hex { color: #471E17; }
+.Dark-Red-2-hex { color: #D08D81; }
+.Dark-Red-3-hex { color: #C75440; }
+.Dark-Red-4-hex { color: #47302C; }
+.Dark-Red-5-hex { color: #943E2F; }
+/* Light Red Color Theme is Hex*/
+/* Color Theme Swatches in Hex */
+.Dark-Red-1-hex { color: #7A6864; }
+.Dark-Red-2-hex { color: #FB9482; }
+.Dark-Red-3-hex { color: #FAD4CD; }
+.Dark-Red-4-hex { color: #7A4840; }
+.Dark-Red-5-hex { color: #C7A8A3; }
+
 
 body{
-    background: grey;
+    background: rgb(0, 0, 0);
 }
 
 #title {
     font-family: 'Baloo Bhai 2', cursive;
-    background: green;
+    position: absolute;
+    z-index: 20;
+    background: white;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid rgb(66, 118, 66);
+    background: rgb(210, 242, 210);
 }
 
 #image {
@@ -26,7 +62,20 @@ img {
 }
 
 .container{
-    background: grey;
+    background: rgb(178, 183, 184);
+}
+
+.required{
+    background: #D08D81;
+    padding: 5px;
+    border-radius: 10px;
+    border: 3px solid #943E2F;
+}
+
+#title-text {
+    left: -5px;
+    top: 32px;
+    position: relative;
 }
 
 a {
@@ -46,9 +95,25 @@ h1, h2, h3, h4, h5{
     margin-bottom: 0;
 }
 
+h3{
+    background: #7A4840;
+    width: 250px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border:2px solid #C75440; 
+    padding: 4px;
+    color: white;
+}
+
 p{
     font-family: 'Raleway', Arial, Helvetica, sans-serif;
 }
+
+.cent {
+    color: rgb(162, 109, 45);
+    font-size: 50px;
+}
+
 
 /* ---------------------------- PLACEHOLDER TEXT ---------------------------- */
 ::placeholder {
@@ -57,6 +122,7 @@ p{
 
 button {
     font-family: 'Raleway', Arial, Helvetica, sans-serif;
+    border-radius: 20px;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -64,12 +130,46 @@ button {
 /* -------------------------------------------------------------------------- */
 button{
     margin: 10px 0;
+    border-radius: 20px; 
+}
+
+#employee-info{
+    margin-bottom: 40px;
 }
 
 input{
     margin: 0px 0px 10px 0px;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                               BUTTON STYLING                               */
+/* -------------------------------------------------------------------------- */
+
+#howto {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    border: 3px solid #AFE3DC;
+    background: #407A62;
+}
+
+#convert {
+    border-radius: 20px;
+    border: 3px solid #AFE3DC;
+    background: #407A62;
+}
+
+.hover{
+    border-radius: 15px !important;
+    border: 5px solid #67C79F !important;
+    background: #254739 !important;
+}
+
+.clicked{
+    border-radius: 15px !important;
+    border: 6px solid #D08D81 !important;
+    background: #C75440 !important;
+}
 /* -------------------------------------------------------------------------- */
 /*                               POPOVER STYLING                              */
 /* -------------------------------------------------------------------------- */
@@ -109,6 +209,10 @@ and (max-device-width : 480px) {
         height: 15vh;
     }
 
+    #image{
+        height: 20vh;
+    }
+
 }
 
 /* Smartphones (landscape) ----------- */
@@ -128,9 +232,23 @@ and (min-width : 321px) {
     }
 }
 
+
+
 /* Smartphones (portrait) ----------- */
 @media only screen 
 and (max-width : 320px) {
+
+    #title {
+        font-family: 'Baloo Bhai 2', cursive;
+        position: absolute;
+        z-index: 20;
+        background: white;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 4px solid rgb(66, 118, 66);
+        background: rgb(210, 242, 210);
+    }
 
     img{
         position: static;
@@ -140,13 +258,63 @@ and (max-width : 320px) {
         object-fit: cover;
     }
     
+    
+}
+
+/* Smartphones (portrait) ----------- */
+/* Galaxy S5 ------------------------ */
+@media only screen 
+and (max-width : 360px) {
+
+    #title {
+        font-family: 'Baloo Bhai 2', cursive;
+        position: absolute;
+        z-index: 20;
+        background: white;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        border: 4px solid rgb(66, 118, 66);
+        background: rgb(210, 242, 210);
+    }
+
+    #title-text{
+        top: 45px;
+        left: 1px;
+    }
+
+    #title-text > h1 {
+        font-size: 3rem;
+    }
+
+    .cent {
+        font-size: 4rem;
+    }
+
+    img{
+        position: static;
+        overflow: hidden;
+        width: 100vw;
+        height: 50vh;
+        object-fit: cover;
+    }
+
+    #carousel-row{
+        height:300px;
+    }
+    
 }
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) {
-/* Styles */
+    #carousel-container {
+        min-width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 20vh;
+    }
 }
 
 /* iPads (landscape) ----------- */
@@ -154,7 +322,12 @@ and (max-device-width : 1024px) {
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) 
 and (orientation : landscape) {
-/* Styles */
+    #carousel-container {
+        min-width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 25vh;
+    }
 }
 
 /* iPads (portrait) ----------- */
@@ -162,13 +335,50 @@ and (orientation : landscape) {
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) 
 and (orientation : portrait) {
-/* Styles */
+    #carousel-container {
+        min-width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 20vh;
+    }
+
+    img{
+        position: static;
+        overflow: hidden;
+        width: 100vw;
+        height: 30vh;
+        object-fit: cover;
+    }
 }
 
 /* Desktops and laptops ----------- */
 @media only screen 
 and (min-width : 1224px) {
-/* Styles */
+    #carousel-container {
+        min-width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 15vh;
+    }
+    #title {
+        font-family: 'Baloo Bhai 2', cursive;
+        position: absolute;
+        z-index: 20;
+        background: white;
+        width: 200px;
+        height: 180px;
+        border-radius: 50%;
+        border: 4px solid rgb(66, 118, 66);
+        background: rgb(210, 242, 210);
+    }
+
+    img{
+        position: static;
+        width: 100vw;
+        height: 30vh;
+        object-fit: cover;
+    }
+
 }
 
 /* Large screens ----------- */
