@@ -59,9 +59,6 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLongTitle">Instructions</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
                         </div>
                         <div class="modal-body">
                         <p>1. Enter employee current home country.</p>
@@ -79,8 +76,8 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="row">
+            <div class="container main">
+                <div class="row how-to">
                     <div class="col-12 text-center">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" id="howto">
@@ -93,12 +90,12 @@
                 <form autocomplete="off">
                     <input style="display:none">
                     <input type="password" style="display:none">
-                    <div class="row">
-                        <div class="col-12 text-center" id="employee-info">
-                            <h2>Employee Information</h2>
-                        </div>
-                    </div>
                     <div class='required'>
+                        <div class="row">
+                            <div class="col-12 text-center" id="employee-info">
+                                <h2>Employee Information</h2>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-12 col-md-6 label">
                                 <h3>Current Country</h3>
@@ -121,14 +118,16 @@
                             <button type="button" class="btn btn-primary" id="convert">Convert</button>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>Base Conversion</h3>
-                            <input type="text" class="form-control" placeholder="Base currency conversion" id="baseCurrency" disabled>
-                        </div>
-                        <div class="col-12 col-md-6 label">
-                            <h3>New <span id="newLocation"></span> Salary</h3>
-                            <input type="text" class="form-control" placeholder="New home salary" id="newSal" disabled>
+                    <div class='converted'>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <h3>Base Conversion</h3>
+                                <input type="text" class="form-control" placeholder="Base currency conversion" id="baseCurrency" disabled>
+                            </div>
+                            <div class="col-12 col-md-6 label">
+                                <h3>New <span id="newLocation"></span> Salary</h3>
+                                <input type="text" class="form-control" placeholder="New home salary" id="newSal" disabled>
+                            </div>
                         </div>
                     </div>
             <!-- -------------------------- conversion button -------------------------- -->
@@ -136,13 +135,13 @@
                 </form>
             </div>
         </main>
-        <footer class='row-fluid'>
+        <footer class='row-fluid' id='footer'>
             <!-- SOCIAL LINKS IN FOOTER -->
             <div class="col-12 text-center">
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-12">
-                        <hr class='col-8'>
+                        <div class="col-12 social">
+                        <hr class='col-10' id='hr'>
                             <ul class="social d-inline">
                                 <li class="d-inline">
                                     <a href="https://www.linkedin.com/in/bencayton/" target="_blank"><i class="fa fa-linkedin-square"></i></a>

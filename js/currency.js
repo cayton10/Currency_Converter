@@ -29,9 +29,12 @@ $(document).ready(function(){
     /*                         fadeIn effects on page load                        */
     /* -------------------------------------------------------------------------- */
 
-    //FadeIn effect for entire page
+    //Page load fade effects
     $('body').hide(0).fadeIn(500);
-    $('#title').hide(0).fadeIn(1250);
+    $('#title').hide(0).fadeIn(1000);
+    $('button').hide(0).fadeIn(1250);
+    $('.required').hide(0).fadeIn(1350);
+    $('.converted').hide(0).fadeIn(1400);
 
     /* ------------------- restCountries API for ALL countries ------------------ */
               //Filter results for only what is needed for this application//
@@ -115,18 +118,26 @@ $(document).ready(function(){
             })
         }
 
+    //Input focus presentations
+    $('input').focus(function () {
+        $(this).addClass('focus', 50);
+    })
+
     //Button click presentation
-    
     $('button').mousedown(function () {
-        $(this).addClass('clicked', 100);
+        $(this).addClass('clicked', 250);
     });
 
     $('button').mouseup(function () { 
-        $(this).removeClass('clicked', 100);
+        $(this).removeClass('clicked', 250);
     });
-
+    //Button hover presentation
     $('button').hover(function () {
-        $(this).toggleClass('hover', 100);
+        $(this).toggleClass('hover', 180);
+    });
+    //Social hover presentation
+    $('.fa').hover(function (){
+        $(this).toggleClass('social-hover', 400);
     });
 
     /* -------------------------------------------------------------------------- */

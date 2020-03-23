@@ -33,8 +33,10 @@
 
 
 body{
-    background: rgb(0, 0, 0);
+    background: rgb(199,84,64);
+    background: linear-gradient(180deg, rgba(199,84,64,1) 0%, rgba(37,71,57,1) 100%);
 }
+
 
 #title {
     font-family: 'Baloo Bhai 2', cursive;
@@ -46,6 +48,7 @@ body{
     border-radius: 50%;
     border: 4px solid rgb(66, 118, 66);
     background: rgb(210, 242, 210);
+    box-shadow: 0px 15px 15px 3px;
 }
 
 #image {
@@ -62,14 +65,30 @@ img {
 }
 
 .container{
-    background: rgb(178, 183, 184);
+    background: rgb(232, 232, 232);
+    box-shadow: 0px 0px 20px 5px;
 }
 
+.container.main{
+    padding-bottom: 40px;
+}
+
+
 .required{
-    background: #D08D81;
+    background: #769186;
     padding: 5px;
     border-radius: 10px;
-    border: 3px solid #943E2F;
+    border: 3px solid #254739;
+    padding-bottom: 20px;
+}
+
+.converted{
+    background: #769186;
+    padding: 5px;
+    border-radius: 10px;
+    border: 3px solid #254739;
+    padding-bottom: 20px;
+    padding-top:20px;
 }
 
 #title-text {
@@ -96,13 +115,13 @@ h1, h2, h3, h4, h5{
 }
 
 h3{
-    background: #7A4840;
+    background: #254739;
     width: 250px;
     margin-bottom: 10px;
     border-radius: 20px;
-    border:2px solid #C75440; 
+    border:2px solid #A3C7B8; 
     padding: 4px;
-    color: white;
+    color: #AFE3DC;
 }
 
 p{
@@ -145,19 +164,34 @@ input{
 /*                               BUTTON STYLING                               */
 /* -------------------------------------------------------------------------- */
 
+.Dark-Red-1-hex { color: #471E17; }
+.Dark-Red-2-hex { color: #D08D81; }
+.Dark-Red-3-hex { color: #C75440; }
+.Dark-Red-4-hex { color: #47302C; }
+.Dark-Red-5-hex { color: #943E2F; }
+
 #howto {
     margin-top: 30px;
     margin-bottom: 30px;
     border-radius: 20px;
-    border: 3px solid #AFE3DC;
-    background: #407A62;
+    border: 3px solid #D08D81;
+    background: #C75440;
+    width: 125px;
+    height: 50px;
+    font-size: 20px;
 }
 
 #convert {
+    margin-top: 15px;
+    margin-bottom: 15px;
     border-radius: 20px;
-    border: 3px solid #AFE3DC;
-    background: #407A62;
+    border: 3px solid #D08D81;
+    background: #C75440;
+    width: 125px;
+    height: 50px;
+    font-size: 20px;
 }
+
 
 .hover{
     border-radius: 15px !important;
@@ -182,6 +216,8 @@ input{
     background: #ff3333;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 .popover-body{
     background: rgb(201, 201, 201);
@@ -393,3 +429,53 @@ only screen and (-webkit-min-device-pixel-ratio : 1.5),
 only screen and (min-device-pixel-ratio : 1.5) {
 /* Styles */
 }
+
+#carousel-row{
+    box-shadow: 0px 0px 20px 5px;
+}
+
+.fa {
+    color: white;
+    width: 50px;
+}
+
+.social-hover{
+    color: rgb(176, 176, 176);
+}
+
+footer {
+    color: white;
+}
+
+#hr {
+    background: white;
+    margin-top: 60xpx;
+}
+
+.d-inline{
+    padding: 0;
+}
+
+.col-12.social{
+    padding-bottom: 20px;
+}
+
+.row.how-to{
+    margin-bottom: 10px;
+    background: linear-gradient(to bottom, rgb(58, 58, 58) 0, #dedede 20px, #e6e6e6 100%);
+}
+
+.form-control:focus {
+    border-color: rgb(227, 100, 100);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+  }
+
+.btn:focus{
+    border-color: rgb(227, 100, 100);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+input[type=text] {
+    color: rgb(227, 100, 100)!important;
+}
+
