@@ -164,11 +164,6 @@ input{
 /*                               BUTTON STYLING                               */
 /* -------------------------------------------------------------------------- */
 
-.Dark-Red-1-hex { color: #471E17; }
-.Dark-Red-2-hex { color: #D08D81; }
-.Dark-Red-3-hex { color: #C75440; }
-.Dark-Red-4-hex { color: #47302C; }
-.Dark-Red-5-hex { color: #943E2F; }
 
 #howto {
     margin-top: 30px;
@@ -192,37 +187,47 @@ input{
     font-size: 20px;
 }
 
+#example {
+    border-radius: 20px;
+    border: 3px solid #D08D81;
+    background: #C75440;
+}
 
 .hover{
-    border-radius: 15px !important;
-    border: 5px solid #67C79F !important;
+    border-radius: 10px !important;
+    border: 3px solid #67C79F !important;
     background: #254739 !important;
 }
 
 .clicked{
     border-radius: 15px !important;
-    border: 6px solid #D08D81 !important;
+    border: 5px solid #D08D81 !important;
     background: #C75440 !important;
 }
 /* -------------------------------------------------------------------------- */
 /*                               POPOVER STYLING                              */
 /* -------------------------------------------------------------------------- */
 .popover{
-    color: rgb(144, 227, 240);
-    border-radius: 10px;
-    border: 1px solid white;
+    color: #943E2F;
+    border-radius: 15px;
+    border: solid 5px #943E2F;
 }
 .popover-header{
-    background: #ff3333;
+    border: solid 0px #943E2F;
+    background: #C75440;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
 }
 .popover-body{
-    background: rgb(201, 201, 201);
+    background: #FAD4CD;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    
 }
 
 /* -------------------------------------------------------------------------- */
@@ -390,19 +395,14 @@ and (orientation : portrait) {
 /* Desktops and laptops ----------- */
 @media only screen 
 and (min-width : 1224px) {
-    #carousel-container {
-        min-width: 100%;
-        margin: 0;
-        padding: 0;
-        height: 15vh;
-    }
+
     #title {
         font-family: 'Baloo Bhai 2', cursive;
         position: absolute;
         z-index: 20;
         background: white;
         width: 200px;
-        height: 180px;
+        height: 200px;
         border-radius: 50%;
         border: 4px solid rgb(66, 118, 66);
         background: rgb(210, 242, 210);
@@ -479,3 +479,28 @@ input[type=text] {
     color: rgb(227, 100, 100)!important;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                modal styling                               */
+/* -------------------------------------------------------------------------- */
+
+.modal-header{
+    background: #AFE3BE
+}
+
+.modal-body {
+    background: #CCF9E6;
+}
+
+.modal-footer{
+    background: #AFE3DC;
+}
+
+h5.modal-title{
+    font-size: 2rem;
+}
+
+.modal-footer > button {
+    border-radius: 20px;
+    border: 3px solid #D08D81;
+    background: #C75440;
+}

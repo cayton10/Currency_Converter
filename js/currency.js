@@ -66,9 +66,12 @@ $(document).ready(function(){
         }
     });
 
-    /* ----------------------- add commas to salary input ----------------------- */
 
-      
+
+    /* -------------------------------------------------------------------------- */
+    /*                         ADD COMMAS TO SALARY INPUT                         */
+    /* -------------------------------------------------------------------------- */
+
     //#current not the best id name, but had to beat Google's autofill in some way.
     $('#current').autocomplete({
         minLength: 2,
@@ -99,6 +102,7 @@ $(document).ready(function(){
         }
     });
 
+    /* ----------------- PREVENT SUBMISSION ON 'RETURN' KEYPRESS ---------------- */
     //Enter / return keypress
     $('#newThing').keypress(function(event){
         //If enter button is pressed,
@@ -118,18 +122,22 @@ $(document).ready(function(){
             })
         }
 
+
+/* -------------------------------------------------------------------------- */
+/*                           PRESENTATION FUNCTIONS                           */
+/* -------------------------------------------------------------------------- */
+
     //Input focus presentations
     $('input').focus(function () {
         $(this).addClass('focus', 50);
     })
-
     //Button click presentation
     $('button').mousedown(function () {
-        $(this).addClass('clicked', 250);
+        $(this).addClass('clicked', 100);
     });
 
     $('button').mouseup(function () { 
-        $(this).removeClass('clicked', 250);
+        $(this).removeClass('clicked', 200);
     });
     //Button hover presentation
     $('button').hover(function () {
@@ -159,8 +167,8 @@ $(document).ready(function(){
                         animation: true
                     }
                 ).popover('show');
-                
-                $('.popover').effect('bounce', {times:60}, 20000); 
+                //Error handling timer set high to prevent post animation rendering
+                $('.popover').effect('bounce', {times:60}, 200000); 
                 $('#current').addClass('invalid');
                 $('#convert').attr('disabled', 'disabled');
 
@@ -174,7 +182,7 @@ $(document).ready(function(){
                         placement: 'bottom'
                     }
                 ).popover('show');
-                $('.popover').effect('bounce', {times:60}, 20000);
+                $('.popover').effect('bounce', {times:60}, 200000);
                 $('#newThing').addClass('invalid');
                 $('#convert').attr('disabled', 'disabled');
 
@@ -187,7 +195,7 @@ $(document).ready(function(){
                         placement: 'bottom'
                     }
                 ).popover('show');
-                $('.popover').effect('bounce', {times:60}, 20000)
+                $('.popover').effect('bounce', {times:60}, 200000)
                 $('#salary').addClass('invalid');
                 $('#convert').attr('disabled', 'disabled');
             }  
