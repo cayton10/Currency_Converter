@@ -1,5 +1,5 @@
 # Currency_Converter
-HR tool for quickly viewing an employee's salary discrepancy between current and new home working country.
+HR tool for quickly viewing an employee's salary discrepancy between current and new home working country. Go break it <a href='https://app.netlify.com/sites/reverent-ptolemy-896755/overview'>here</a> and log any issues, please. 
 
 # APIs in Use:
 
